@@ -1,0 +1,23 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://goitacademy.github.io/restaurant",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /restaurant/"
+  },
+  "keywords": [],
+  "author": "Olha Lushina <olga.lushina.ua@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.14.4",
+    "parcel": "^2.14.4",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^2.0.1"
+  },
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
+  }
+}
