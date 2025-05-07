@@ -1,24 +1,30 @@
-name: Build and deploy to GitHub Pages
+name: Build and Deploy
 
+# Срабатывает только при push в main (т.е. после merge PR)
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies 🔧
+        run: npm ci
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+      - name: Build project 🏗️
+        run: npm run build
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: dist
+          branch: gh-pages # Куда деплоим
+          folder: dist # Что деплоим (Parcel генерирует в dist)
